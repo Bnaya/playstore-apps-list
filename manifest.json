@@ -1,0 +1,18 @@
+{
+  "manifest_version": 2,
+
+  "name": "Playstore apps list",
+  "description": "Create custom apps lists in google playstore and install them in one click",
+  "version": "0.1",
+
+  "permissions": [
+    "https://play.google.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://play.google.com/*"],
+      "css": ["main.css"],
+      "js": ["main.js"]
+    }
+  ]
+}
