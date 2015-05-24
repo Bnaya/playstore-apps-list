@@ -6,13 +6,24 @@
   "version": "0.1",
 
   "permissions": [
-    "https://play.google.com/*"
+    "https://play.google.com/*",
+    "tabs"
   ],
   "content_scripts": [
     {
       "matches": ["https://play.google.com/*"],
-      "css": ["main.css"],
-      "js": ["main.js"]
+      "js": ["dist/bundle.js"]
     }
-  ]
+  ],
+  "background": {
+    "page": "background.html"
+  },
+  "page_action": {
+    "default_icon": {
+      "19": "images/add_to_list_icon_19.png",
+      "38": "images/add_to_list_icon_38.png"
+    },
+    "default_title": "Add to apps list",
+    "default_popup": "pageActionWindow.html"
+  }
 }

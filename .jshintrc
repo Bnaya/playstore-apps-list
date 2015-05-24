@@ -1,0 +1,21 @@
+{
+    "globals": { "define": true, "require": true },
+    "undef": true,
+    "browser": true,
+    "unused": true,
+    "onevar": true,
+    "curly": true,
+    "white": true,
+    "trailing": true,
+    "plusplus": true,
+    "noempty": true,
+    "nonew": true,
+    "noarg": true,
+    "newcap": true,
+    "indent": 4,
+    "freeze": true,
+    "immed": true,
+    "eqeqeq": true,
+    "camelcase": true,
+    "esnext": true
+}
