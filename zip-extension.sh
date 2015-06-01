@@ -1,1 +1,0 @@
-zip -r extension.zip . -x *.git/**\* *gulp/**\* *node_modules/**\* extension.zip
