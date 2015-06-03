@@ -52,11 +52,23 @@ class PageActionWindow {
 
     generateAppListView() {
         return this.appsListClient.getAll().then(function (list) {
-            var appId, htmlStr = `<select class="apps" multiple>`;
+            var appId, htmlStr = `<select class="apps" multiple>`,
+                arrayList = [];
 
             for (appId in list) {
-                htmlStr += `<option value="${appId}">${list[appId]}</option>`;
+                arrayList.push({
+                    id: appId,
+                    title: list[appId]
+                });
             }
+
+            arrayList.sort((a, b) => {
+                return a.title.localeCompare(b.title);
+            });
+
+            arrayList.forEach((app) => {
+                htmlStr += `<option value="${app.id}">${app.title}</option>`;
+            });
 
             htmlStr += `</select>`;
 
