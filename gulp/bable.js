@@ -10,7 +10,7 @@ var uglify = require('gulp-uglify');
 gulp.task('babel', function() {
     "use strict";
 
-    browserify('./src/main.js', { debug: true })
+    browserify('./extension/src/main.js', { debug: true })
     .transform(babelify)
     .bundle()
     .on('error', gutil.log.bind(gutil, 'Browserify Error'))
@@ -19,5 +19,5 @@ gulp.task('babel', function() {
     .pipe(sourcemaps.init({loadMaps: true})) // loads map from browserify file
     //.pipe(uglify())
     .pipe(sourcemaps.write('./')) // writes .map file
-    .pipe(gulp.dest('./dist'));
+    .pipe(gulp.dest('./extension/dist'));
 });

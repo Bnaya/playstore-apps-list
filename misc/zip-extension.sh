@@ -1,0 +1,1 @@
+zip -r extension.zip extension/ -x *src/**\* extension.zip
