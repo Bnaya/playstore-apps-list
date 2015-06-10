@@ -15,6 +15,7 @@ class PageCode {
                     showAddPageAction: true,
                     devicesList: data.devicesList
                 }, {}, () => {});
+            }).catch(function () {
             });
 
 
@@ -31,8 +32,9 @@ class PageCode {
 
                 window.playStoreInstaller = new AppsInstaller(this.data.token, message.payload.device);
 
-                message.payload.apps.map(function (appId) {
+                Promise.all(message.payload.apps.map(function (appId) {
                     return window.playStoreInstaller.install(appId);
+                })).then(function () {
                 });
             }
         });
