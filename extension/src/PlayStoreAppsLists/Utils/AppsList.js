@@ -1,39 +1,40 @@
-class AppsList {
+import storage from './storage';
+
+class AppsListClient {
     constructor() {
-        this.populateList();
     }
 
     add(appId, title) {
-        this.list[appId] = title;
-        this.persistList();
+        return this.getAll().then(function (list) {
+            list[appId] = title;
+
+            return storage.set({
+                previewList: list
+            });
+        });
     }
 
     remove(appId) {
-        delete this.list[appId];
-        this.persistList();
+        return this.getAll().then(function (list) {
+            delete list[appId];
+
+            return storage.set({
+                previewList: list
+            });
+        });
     }
 
-    populateList() {
-        var persistData = localStorage.getItem('previewList');
-
-        if (!persistData) {
-            this.list = {};
-        } else {
-            this.list = JSON.parse(localStorage.getItem('previewList'));
-        }
+    get(appId) {
+        return this.getAll().then(function (list) {
+            return list[appId];
+        });
     }
 
-    getAll () {
-        return this.list;
-    }
-
-    get (appId) {
-        return this.list[appId];
-    }
-
-    persistList() {
-        localStorage.setItem('previewList', JSON.stringify(this.list));
+    getAll() {
+        return storage.get('previewList').then(function (items) {
+            return items.previewList || {};
+        });
     }
 }
 
-export default AppsList;
+export default AppsListClient;

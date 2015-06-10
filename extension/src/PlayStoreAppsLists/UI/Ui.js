@@ -1,4 +1,4 @@
-import AppsListClient from '../Utils/AppsListClient';
+import AppsListClient from '../Utils/AppsList';
 
 class Ui {
     constructor () {

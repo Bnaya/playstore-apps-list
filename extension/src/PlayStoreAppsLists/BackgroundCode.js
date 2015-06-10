@@ -5,7 +5,6 @@ class BackgroundCode {
     }
 
     start() {
-        this.manageListRequests();
         this.setPageActionCode();
     }
 
