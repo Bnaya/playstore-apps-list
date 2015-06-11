@@ -16,6 +16,10 @@ function getInitData (firstToken) {
                 };
             resolve(data);
         });
+
+        myRequest.addEventListener('error', function () {
+            reject();
+        });
     });
 }
 
