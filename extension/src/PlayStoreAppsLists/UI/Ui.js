@@ -17,7 +17,7 @@ class Ui {
             if (lastUrl !== window.location.href) {
                 if (window.location.pathname === "/store/apps/details" && window.document.querySelector('.details-actions')) {
                     lastUrl = window.location.href;
-                    this.applyButton();
+                    window.setTimeout(this.applyButton.bind(this), 300);
                 }
             }
         }, 500);
@@ -72,6 +72,8 @@ class Ui {
             line-height: 36px;
             padding: 0px 10px;
             `;
+
+        el.setAttribute('title', 'PlayStore apps list extension button');
 
         el.classList.add('ugly-button');
         el.setAttribute('style', style);
